@@ -3293,3 +3293,28 @@ header.site-header {
 
     border-radius: 50% !important;
 }
+
+/* Navigation without repeated name */
+
+.nav-container {
+    justify-content: flex-end !important;
+}
+
+.academic-hero-content .hero-heading {
+    max-width: 760px;
+
+    color: #102f4f;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.02em;
+
+    margin: 0 0 1.7rem;
+}
