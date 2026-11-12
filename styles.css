@@ -3261,3 +3261,148 @@ header.site-header {
     }
 
 }
+
+/* ==========================================================
+   FINAL HOMEPAGE PROFILE FIX
+   KEEP AT VERY BOTTOM
+   ========================================================== */
+
+
+/* Navigation: no repeated name */
+
+.nav-container {
+    justify-content: flex-end !important;
+}
+
+
+/* Desktop profile layout */
+
+@media (min-width: 901px) {
+
+    .academic-hero-grid {
+        display: grid !important;
+
+        grid-template-columns:
+            220px minmax(0, 1fr) !important;
+
+        gap: 4rem !important;
+
+        align-items: start !important;
+    }
+
+    .academic-profile {
+        width: 220px !important;
+        min-width: 220px !important;
+    }
+
+}
+
+
+/* Small circular profile photo */
+
+.academic-photo-wrapper {
+    width: 150px !important;
+    height: 150px !important;
+    max-width: 150px !important;
+
+    margin:
+        0 0
+        1.25rem 0 !important;
+
+    padding: 0 !important;
+
+    border-radius: 50% !important;
+
+    overflow: hidden !important;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e0e6ea;
+
+    box-shadow:
+        0 6px 18px
+        rgba(17, 47, 79, 0.10);
+}
+
+
+.academic-profile-photo {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    border-radius: 50% !important;
+}
+
+
+/* Main professional title */
+
+.academic-hero-content .hero-heading {
+    max-width: 760px;
+
+    color: #102f4f;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            2.2rem,
+            4vw,
+            3.5rem
+        );
+
+    line-height: 1.15;
+
+    letter-spacing: -0.02em;
+
+    margin:
+        0 0
+        1.7rem;
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .academic-hero-grid {
+        grid-template-columns:
+            1fr !important;
+    }
+
+    .academic-profile {
+        width: auto !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .academic-photo-wrapper {
+        margin:
+            0 auto
+            1.25rem !important;
+    }
+
+    .academic-profile {
+        text-align: center;
+    }
+
+    .profile-divider {
+        margin:
+            1rem auto !important;
+    }
+
+    .profile-details p {
+        justify-content: center;
+    }
+
+}
