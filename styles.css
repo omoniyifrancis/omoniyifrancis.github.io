@@ -3261,3 +3261,35 @@ header.site-header {
     }
 
 }
+
+/* ==========================================================
+   FINAL PROFILE PHOTO FIX
+   ========================================================== */
+
+.academic-photo-wrapper {
+    width: 150px !important;
+    height: 150px !important;
+    max-width: 150px !important;
+
+    margin: 0 0 1.25rem 0 !important;
+
+    border-radius: 50% !important;
+    overflow: hidden !important;
+
+    background: #ffffff;
+    border: 1px solid #e0e6ea;
+    box-shadow: 0 6px 18px rgba(17, 47, 79, 0.10);
+}
+
+.academic-profile-photo {
+    display: block !important;
+
+    width: 150px !important;
+    height: 150px !important;
+    max-width: 150px !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    border-radius: 50% !important;
+}
