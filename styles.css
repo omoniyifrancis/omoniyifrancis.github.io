@@ -3293,3 +3293,9 @@ header.site-header {
 
     border-radius: 50% !important;
 }
+
+/* Navigation without repeated name */
+
+.nav-container {
+    justify-content: flex-end !important;
+}
