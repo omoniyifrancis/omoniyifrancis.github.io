@@ -8,6 +8,24 @@
     <title>Research | Francis Omoniyi Emmanuel</title>
 
     <link rel="stylesheet" href="styles.css">
+    <!-- MathJax for mathematical equations -->
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+</script>
+
+<script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 </head>
 
 <body>
@@ -85,52 +103,177 @@
 
     <section>
 
-        <h2>Dissertation Research</h2>
+    <h2>Dissertation Research</h2>
 
-        <h3>
-            Mathematical Modeling of Cardiovascular Disease–Mortality
-            Dynamics: A Data-Informed Framework with Physical Activity
-            Effect Modification
-        </h3>
+    <h3>
+        Mathematical Modeling of Cardiovascular Disease–Mortality
+        Dynamics: A Data-Informed Framework with Physical Activity
+        Effect Modification
+    </h3>
 
-        <p>
-            My dissertation investigates the relationships among physical
-            activity, cardiovascular disease, and mortality using both
-            longitudinal statistical analysis and mathematical modeling.
-            The empirical component uses repeated observations from the
-            Health and Retirement Study to examine how physical activity
-            and cardiovascular disease are associated with mortality over
-            time among adults age 50 and older in thw United States.
+    <p>
+        My dissertation investigates the relationships among physical
+        activity, cardiovascular disease (CVD), and mortality by combining
+        longitudinal survival analysis with a compartmental dynamical model.
+        The empirical component uses repeated observations from the
+        Health and Retirement Study (HRS) to examine these processes among
+        U.S. adults age 50 and older.
+    </p>
+
+    <p>
+        The statistical analysis uses counting-process survival data,
+        time-varying covariates, Cox proportional hazards models, and
+        extended Cox models to characterize mortality and incident-CVD
+        risks over time. In particular, the analysis investigates whether
+        the association between CVD and mortality differs according to
+        physical activity level and whether selected effects vary with time.
+    </p>
+
+
+    <!-- MATHEMATICAL FORMULATION -->
+
+    <div class="research-equation-panel">
+
+        <p class="equation-label">
+            Mathematical formulation
         </p>
 
         <p>
-            The statistical component uses survival-analysis methods,
-            including time-varying Cox proportional hazards models, to
-            examine mortality risk while accounting for changes in
-            physical activity and health status over time. I am also
-            interested in effect modification, particularly whether the
-            relationship between physical activity and mortality differs
-            according to cardiovascular disease status.
+            The population is stratified by cardiovascular disease status
+            and physical activity level. For
+            \(j=0,1,2,3\), let \(S_j(t)\) denote individuals without CVD
+            and \(C_j(t)\) individuals with CVD in physical activity
+            category \(j\). The cumulative number of deaths is denoted by
+            \(D(t)\).
+        </p>
+
+        <div class="equation-display">
+
+        \[
+        \begin{aligned}
+        \frac{dS_j}{dt}
+        &=
+        \sum_{\substack{k=0\\k\neq j}}^{3}
+        q^{S}_{kj}S_k
+        -
+        \sum_{\substack{k=0\\k\neq j}}^{3}
+        q^{S}_{jk}S_j
+        -
+        \lambda_j(t)S_j
+        -
+        m_{S_j}(t)S_j,
+        \\[6pt]
+        \frac{dC_j}{dt}
+        &=
+        \lambda_j(t)S_j
+        +
+        \sum_{\substack{k=0\\k\neq j}}^{3}
+        q^{C}_{kj}C_k
+        -
+        \sum_{\substack{k=0\\k\neq j}}^{3}
+        q^{C}_{jk}C_j
+        -
+        m_{C_j}(t)C_j,
+        \\[6pt]
+        \frac{dD}{dt}
+        &=
+        \sum_{j=0}^{3}
+        m_{S_j}(t)S_j
+        +
+        \sum_{j=0}^{3}
+        m_{C_j}(t)C_j .
+        \end{aligned}
+        \]
+
+        </div>
+
+        <p>
+            Here, \(q^{S}_{jk}\) and \(q^{C}_{jk}\) describe transitions
+            among physical activity states, \(\lambda_j(t)\) represents
+            CVD incidence, and \(m_{S_j}(t)\) and \(m_{C_j}(t)\) represent
+            mortality rates for individuals without and with CVD,
+            respectively.
+        </p>
+
+    </div>
+
+
+    <!-- SURVIVAL MODEL -->
+
+    <div class="research-equation-panel statistical-panel">
+
+        <p class="equation-label">
+            Survival-analysis component
         </p>
 
         <p>
-            The mathematical component develops a compartmental framework
-            in which individuals are classified according to
-            cardiovascular disease status and level of physical activity.
-            Transitions between activity levels, cardiovascular disease
-            states, and mortality are represented through systems of
-            differential equations.
+            Time-dependent mortality and CVD risks are estimated from
+            longitudinal HRS data using extended Cox regression models.
+            A general representation of the hazard is
         </p>
+
+        <div class="equation-display">
+
+        \[
+        h_i(t)
+        =
+        h_0(t)
+        \exp
+        \left\{
+        \boldsymbol{\beta}^{\top}\mathbf{X}_i(t)
+        +
+        \boldsymbol{\gamma}^{\top}
+        \mathbf{X}_i(t)\log(t)
+        \right\}.
+        \]
+
+        </div>
 
         <p>
-            A central goal of the project is to connect empirical hazard
-            estimates from longitudinal data with the transition and
-            mortality structure of the mathematical model. This creates
-            a framework in which observed population data can inform
-            mechanistic models of disease and mortality dynamics.
+            The estimated hazard information is then used to inform
+            quantities such as
+            \(\lambda_j(t)\), \(m_{S_j}(t)\), and \(m_{C_j}(t)\)
+            in the dynamical system.
         </p>
 
-    </section>
+    </div>
+
+
+    <!-- RESEARCH CONNECTION -->
+
+    <div class="research-bridge">
+
+        <p class="equation-label">
+            Statistical–mathematical connection
+        </p>
+
+        <div class="research-flow">
+
+            <span>Longitudinal HRS Data</span>
+
+            <span class="flow-arrow">→</span>
+
+            <span>Survival Analysis</span>
+
+            <span class="flow-arrow">→</span>
+
+            <span>Estimated Hazards</span>
+
+            <span class="flow-arrow">→</span>
+
+            <span>Dynamical Model</span>
+
+        </div>
+
+        <p>
+            A central objective of the dissertation is therefore to connect
+            individual-level longitudinal hazard estimation with
+            population-level disease and mortality dynamics.
+        </p>
+
+    </div>
+
+</section>
 
 
     <section>
